@@ -3,51 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Aternos Clone</title>
-
+    <title>Aternos Clone - Máy chủ</title>
     <link rel="stylesheet" href="css/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
   </head>
-
   <body>
     <header class="header">
       <div class="logo">CHITRUNG</div>
-
-      <a href="#" class="support"> Hỗ trợ </a>
-      <div class="header-center"></div>
+      <a href="#" class="support"
+        ><i class="fa-solid fa-life-ring"></i> Hỗ trợ</a
+      >
       <div class="header-right">
-        <a href="#" class="header-item" id="server-header"
-          ><i class="fa-solid fa-server"></i> Máy chủ
+        <a href="index.html" class="header-item active">
+          <i class="fa-solid fa-server"></i> Máy chủ
         </a>
-
-        <a href="#" class="header-item" id="user-header"
-          ><i class="fa-solid fa-user"></i> Tài khoản
+        <a href="#" class="header-item">
+          <i class="fa-solid fa-user"></i> Tài khoản
         </a>
-
         <div class="user">
           <span>chitrung13032006</span>
-
-          <div class="avatar">👤</div>
+          <div class="avatar"><i class="fa-solid fa-user"></i></div>
         </div>
       </div>
     </header>
+
     <aside class="sidebar">
       <div class="status">
-        <div class="server-name">My Server</div>
-        <div class="server-status">
+        <div class="server-name">Sinh Tồn 1.21.1</div>
+        <div class="server-status offline">
           <i class="fa-solid fa-circle"></i>
-          Offline
+          <span class="server-status-text">Offline</span>
         </div>
       </div>
+
+      <div class="server-controls">
+        <button class="btn btn-start">
+          <i class="fa-solid fa-play"></i> Bắt đầu
+        </button>
+        <button class="btn btn-restart">
+          <i class="fa-solid fa-rotate-right"></i> Khởi động lại
+        </button>
+        <button class="btn btn-stop">
+          <i class="fa-solid fa-power-off"></i> Dừng lại
+        </button>
+      </div>
+
       <div class="navigation-list">
-        <a href="#"><i class="fa-solid fa-server"></i> Máy chủ</a>
+        <a href="index.html" class="active"
+          ><i class="fa-solid fa-server"></i> Máy chủ</a
+        >
         <a href="#"><i class="fa-solid fa-gear"></i> Tùy chọn </a>
         <a href="console.html"
-          ><i class="fa-solid fa-gauge"></i> Bảng điều khiển</a
+          ><i class="fa-solid fa-terminal"></i> Bảng điều khiển</a
         >
         <a href="#"><i class="fa-solid fa-file-lines"></i> Nhật kí</a>
         <a href="#"><i class="fa-solid fa-users"></i> Người chơi</a>
@@ -58,6 +68,61 @@
         <a href="#"><i class="fa-solid fa-key"></i> Quyền hạn</a>
       </div>
     </aside>
-    <main class="main">concac</main>
+
+    <main class="main">
+      <h1 class="dashboard-title">Tổng quan máy chủ</h1>
+
+      <div class="dashboard-grid">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+          <div class="stat-details">
+            <h3>Người chơi</h3>
+            <p>0 / 20</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fa-solid fa-memory"></i></div>
+          <div class="stat-details">
+            <h3>RAM</h3>
+            <p>0 MB / 4096 MB</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fa-solid fa-microchip"></i></div>
+          <div class="stat-details">
+            <h3>CPU</h3>
+            <p>0%</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fa-solid fa-hard-drive"></i></div>
+          <div class="stat-details">
+            <h3>Ổ đĩa</h3>
+            <p>1.2 GB / 10 GB</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <h2><i class="fa-solid fa-circle-info"></i> Thông tin kết nối</h2>
+        <div class="info-row">
+          <strong>IP / Địa chỉ:</strong>
+          <div class="info-value">
+            <span>mc.chitrung.vn</span>
+            <button><i class="fa-regular fa-copy"></i></button>
+          </div>
+        </div>
+        <div class="info-row">
+          <strong>Phiên bản:</strong>
+          <div class="info-value">
+            <span>Spigot 1.21.1</span>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="js/script.js"></script>
   </body>
 </html>

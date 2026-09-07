@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bảng điều khiển</title>
+    <title>Aternos Clone - Bảng điều khiển</title>
     <link rel="stylesheet" href="css/style.css" />
     <link
       rel="stylesheet"
@@ -14,42 +14,52 @@
       rel="stylesheet"
     />
   </head>
-
   <body>
     <header class="header">
       <div class="logo">CHITRUNG</div>
-
-      <a href="#" class="support"> Hỗ trợ </a>
-      <div class="header-center"></div>
+      <a href="#" class="support"
+        ><i class="fa-solid fa-life-ring"></i> Hỗ trợ</a
+      >
       <div class="header-right">
-        <a href="#" class="header-item" id="server-header"
-          ><i class="fa-solid fa-server"></i> Máy chủ
+        <a href="index.html" class="header-item">
+          <i class="fa-solid fa-server"></i> Máy chủ
         </a>
-
-        <a href="#" class="header-item" id="user-header"
-          ><i class="fa-solid fa-user"></i> Tài khoản
+        <a href="#" class="header-item">
+          <i class="fa-solid fa-user"></i> Tài khoản
         </a>
-
         <div class="user">
           <span>chitrung13032006</span>
-
-          <div class="avatar">👤</div>
+          <div class="avatar"><i class="fa-solid fa-user"></i></div>
         </div>
       </div>
     </header>
+
     <aside class="sidebar">
       <div class="status">
-        <div class="server-name">My Server</div>
-        <div class="server-status">
+        <div class="server-name">Sinh Tồn 1.21.1</div>
+        <div class="server-status offline">
           <i class="fa-solid fa-circle"></i>
-          Offline
+          <span class="server-status-text">Offline</span>
         </div>
       </div>
+
+      <div class="server-controls">
+        <button class="btn btn-start">
+          <i class="fa-solid fa-play"></i> Bắt đầu
+        </button>
+        <button class="btn btn-restart">
+          <i class="fa-solid fa-rotate-right"></i> Khởi động lại
+        </button>
+        <button class="btn btn-stop">
+          <i class="fa-solid fa-power-off"></i> Dừng lại
+        </button>
+      </div>
+
       <div class="navigation-list">
         <a href="index.html"><i class="fa-solid fa-server"></i> Máy chủ</a>
         <a href="#"><i class="fa-solid fa-gear"></i> Tùy chọn </a>
-        <a href="console.html"
-          ><i class="fa-solid fa-gauge"></i> Bảng điều khiển</a
+        <a href="console.html" class="active"
+          ><i class="fa-solid fa-terminal"></i> Bảng điều khiển</a
         >
         <a href="#"><i class="fa-solid fa-file-lines"></i> Nhật kí</a>
         <a href="#"><i class="fa-solid fa-users"></i> Người chơi</a>
@@ -60,18 +70,43 @@
         <a href="#"><i class="fa-solid fa-key"></i> Quyền hạn</a>
       </div>
     </aside>
+
     <main class="main">
       <div class="console-box">
         <div class="console-header">
-          <h2>Bảng điều khiển</h2>
-          <button>☷ Nhật ký</button>
+          <h2><i class="fa-solid fa-terminal"></i> Bảng điều khiển</h2>
+          <button><i class="fa-solid fa-download"></i> Tải nhật ký</button>
         </div>
 
         <div class="terminal">
-          <div class="terminal-content" id="terminal-content"></div>
+          <div class="terminal-content" id="terminal-content">
+            <span style="color: #61afef">[Server thread/INFO]:</span> Starting
+            minecraft server version 1.21.1<br />
+            <span style="color: #61afef">[Server thread/INFO]:</span> Loading
+            properties<br />
+            <span style="color: #61afef">[Server thread/INFO]:</span> Default
+            game type: SURVIVAL<br />
+            <span style="color: #61afef">[Server thread/INFO]:</span> Generating
+            keypair<br />
+            <span style="color: #61afef">[Server thread/INFO]:</span> Starting
+            Minecraft server on *:25565<br />
+            <span style="color: #61afef">[Server thread/INFO]:</span> Using
+            default channel type<br />
+            <span style="color: #98c379">[Server thread/INFO]:</span> Preparing
+            level "world"<br />
+            <span style="color: #e5c07b">[Server thread/WARN]:</span> [!] The
+            server is running in offline mode!<br />
+            <span style="color: #98c379">[Server thread/INFO]:</span> Done
+            (5.234s)! For help, type "help"<br />
+          </div>
           <div class="terminal-input">
             <span>></span>
-            <input type="text" id="commandInput" />
+            <input
+              type="text"
+              id="commandInput"
+              placeholder="Nhập lệnh (vd: help, op, gamemode...)"
+              autocomplete="off"
+            />
           </div>
         </div>
       </div>
