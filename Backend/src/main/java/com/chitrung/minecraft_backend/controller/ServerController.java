@@ -24,4 +24,9 @@ public class ServerController {
         serverStatus = "offline";
         return Map.of("status", serverStatus);
     }
+    @PostMapping("/api/server/restart")
+    public Map<String,String> restart() {
+        serverStatus = "offline";
+        return Map.of("status", serverStatus);
+    }
 }
