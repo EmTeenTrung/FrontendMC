@@ -1,3 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Roboto+Mono:wght@400;500&display=swap");
+
+:root {
+  --header-height: 96px;
+  --sidebar-width: 220px;
+
+  --main-color: #293945;
+  --sidebar-dark: #1f2b33;
+  --hover-color: #45545f;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,20 +16,25 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Play", sans-serif;
 }
 
 .header {
-  height: 96px;
   position: fixed;
   top: 0;
   left: 0;
+
   width: 100%;
+  height: var(--header-height);
+
   z-index: 1000;
+
   display: flex;
   align-items: center;
+
   padding: 0 30px;
-  background-color: #293945;
+
+  background-color: var(--main-color);
 }
 
 .logo {
@@ -29,13 +45,11 @@ body {
 
 .support {
   margin-left: 30px;
-
   padding: 12px 20px;
 
   background-color: #2388d9;
 
   color: white;
-
   text-decoration: none;
 
   border-radius: 3px;
@@ -50,19 +64,27 @@ body {
 
 .header-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
   width: 120px;
-  height: 96px;
+  height: var(--header-height);
 
   color: white;
   text-decoration: none;
 }
 
+.header-item i {
+  margin-bottom: 8px;
+}
+
+.header-right a:hover {
+  background-color: var(--hover-color);
+}
+
 .user {
   display: flex;
-
   align-items: center;
 
   gap: 15px;
@@ -86,12 +108,58 @@ body {
 }
 
 .sidebar {
-  background-color: #293945;
-  width: 220px;
-  min-height: 100vh;
   position: fixed;
-  top: 96px;
+
+  top: var(--header-height);
   left: 0;
+
+  width: var(--sidebar-width);
+  height: calc(100vh - var(--header-height));
+
+  background-color: var(--main-color);
+
+  overflow-y: auto;
+}
+
+.status {
+  padding: 10px 30px;
+
+  background-color: var(--sidebar-dark);
+
+  border-bottom: 1px solid #3b4a54;
+}
+
+.status-title {
+  font-size: 12px;
+  color: #9aa7ae;
+
+  margin-bottom: 8px;
+}
+
+.server-name {
+  color: white;
+
+  font-size: 16px;
+  font-weight: bold;
+
+  margin-bottom: 12px;
+}
+
+.server-status {
+  display: flex;
+  align-items: center;
+
+  color: #9aa7ae;
+
+  font-size: 14px;
+}
+
+.server-status i {
+  font-size: 8px;
+
+  margin-right: 8px;
+
+  color: red;
 }
 
 .navigation-list {
@@ -101,94 +169,79 @@ body {
 
 .navigation-list a {
   padding: 20px 30px;
+
   color: white;
   text-decoration: none;
+
   text-align: left;
-  font-weight: bold;
+
+  font-size: 19px;
+
+  white-space: nowrap;
 }
 
 .navigation-list a:hover {
-  background-color: #45545f;
+  background-color: var(--hover-color);
 }
 
-.status {
-  padding: 10px 30px;
-  background-color: #1f2b33;
-  border-bottom: 1px solid #3b4a54;
-}
-
-.status-title {
-  font-size: 12px;
-  color: #9aa7ae;
-  margin-bottom: 8px;
-}
-
-.server-name {
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 12px;
-}
-.server-status {
-  display: flex;
-  align-items: center;
-  color: #9aa7ae;
-  font-size: 14px;
-}
-.server-status i {
-  font-size: 8px;
+.sidebar i {
   margin-right: 8px;
-  color: red;
 }
 
 .main {
-  margin-left: 220px;
-  padding-top: 96px;
-  box-sizing: border-box;
-}
+  margin-left: var(--sidebar-width);
+  margin-top: var(--header-height);
 
-.header-right a:hover {
-  background-color: #45545f;
+  min-height: calc(100vh - var(--header-height));
+
+  padding: 30px;
 }
 
 .console-box {
-  width: calc(100% - 30px);
-  max-width: 1200px;
-  margin: 30px auto;
-  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
 }
 
 .terminal {
   width: 100%;
   height: 560px;
+
   background-color: #2d3943;
+
   display: flex;
   flex-direction: column;
 }
 
 .console-header {
-  height: 43px;
   width: 100%;
+  height: 43px;
+
+  display: flex;
   align-items: center;
   justify-content: space-between;
+
   background-color: #263038;
-  display: flex;
 }
 
 .console-header h2 {
   color: #f0f0f0;
+
   font-size: 16px;
+
   margin: 0;
   padding-left: 20px;
 }
 
 .console-header button {
   margin-right: 20px;
+
   display: flex;
   align-items: center;
+
   gap: 6px;
 
   padding: 6px 10px;
+
   border: none;
   border-radius: 3px;
 
@@ -199,37 +252,48 @@ body {
 }
 
 .terminal-content {
-  color: white;
-  font-family: "Roboto mono", monospace;
-  font-size: 12px;
   flex: 1;
+
+  padding: 10px 15px;
+
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 10px 15px;
-  box-sizing: border-box;
+
+  color: white;
+
+  font-family: "Roboto Mono", monospace;
+  font-size: 12px;
 }
 
 .terminal-input {
+  width: 100%;
+
   display: flex;
   align-items: center;
-  width: 100%;
-  background-color: #2d3c48;
+
   padding: 8px 12px;
-  box-sizing: border-box;
+
+  background-color: #2d3c48;
 }
 
 .terminal-input span {
-  color: white;
-  font-size: 20px;
   margin-right: 8px;
+
+  color: white;
+
+  font-size: 20px;
 }
 
 .terminal-input input {
   flex: 1;
+
   background: transparent;
+
   border: none;
   outline: none;
+
   color: white;
-  font-family: monospace;
+
+  font-family: "Roboto Mono", monospace;
   font-size: 14px;
 }
