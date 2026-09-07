@@ -1,5 +1,6 @@
 const commandInput = document.getElementById("commandInput");
 const terminalContent = document.getElementById("terminal-content");
+const IP = "http://localhost:8080";
 
 if (commandInput && terminalContent) {
   commandInput.addEventListener("keydown", function (event) {
@@ -33,30 +34,48 @@ function updateServerStatus(status) {
   });
 }
 
-fetch("http://localhost:8080/api/server/status")
+function serverApi(endpoint, method) {
+  return fetch(IP + "/api/server" + endpoint, {
+    method: method,
+  });
+  /*fetch(IP + "/api/server" + endpoint, {
+    method: method,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      updateServerStatus(data.status);
+    });*/
+}
+
+serverApi("/status", "GET")
   .then((response) => response.json())
   .then((data) => {
     updateServerStatus(data.status);
   });
 
 const startBtn = document.querySelector(".btn-start");
-
-startBtn.addEventListener("click", function () {
-  fetch("http://localhost:8080/api/server/start", {
-    method: "POST",
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      updateServerStatus(data.status);
-    });
-});
-
 const stopBtn = document.querySelector(".btn-stop");
 
-stopBtn.addEventListener("click", function () {
-  fetch("http://localhost:8080/api/server/stop", { method: "POST" })
-    .then((response) => response.json())
-    .then((data) => {
-      updateServerStatus(data.status);
+function action(button, endpoint) {
+  if (button) {
+    button.addEventListener("click", async function () {
+      try {
+        const response = await serverApi(endpoint, "POST");
+        button.disabled = true;
+        if (!response.ok) {
+          throw new Error("HTTP " + response.status);
+        }
+
+        const data = await response.json();
+        updateServerStatus(data.status);
+      } catch (e) {
+        console.log(e.message);
+      } finally {
+        button.disabled = false;
+      }
     });
-});
+  }
+}
+
+action(startBtn, "/start");
+action(stopBtn, "/stop");
